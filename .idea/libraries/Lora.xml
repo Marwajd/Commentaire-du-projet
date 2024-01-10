@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Lora">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/assets/fonts/lora/Lora.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

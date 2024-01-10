@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Raleway">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/assets/fonts/raleway/Raleway.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

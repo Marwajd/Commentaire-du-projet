@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Set character encoding -->
     <meta charset="UTF-8">
+    <!-- Enable responsive design -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Link to external stylesheet -->
     <link rel="stylesheet" href="product.css">
 </head>
 <body>
 <div class="container">
+    <!-- Title for product detail section -->
     <div class="title">PRODUCT DETAIL</div>
     <div class="detail">
+        <!-- Product detail section -->
         <div class="image">
             <img src="">
         </div>
@@ -20,6 +25,7 @@
                 <button>Check Out</button>
                 <button>Add To Cart
                     <span>
+                        <!-- SVG icon for 'Add to Cart' button -->
                             <svg class="" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
                             </svg>
@@ -29,40 +35,52 @@
             <div class="description"></div>
         </div>
     </div>
-
+    <!-- Title for similar products section -->
     <div class="title">Similar product</div>
+    <!-- Container for similar products -->
     <div class="listProduct"></div>
 </div>
 
 
 
 <script>
+
+ // Initialize products as null
         let products = null;
-        // get datas from file json
+
+        // Fetch data from products.json file
         fetch('products.json')
             .then(response => response.json())
             .then(data => {
+             // Store retrieved data in 'products' variable
                 products = data;
+                 // Call the function to display product details
                 showDetail();
         })
-
+  // Function to display product details
         function showDetail(){
-    // remove datas default from HTML
+     // Remove default data from HTML
         let detail = document.querySelector('.detail');
         let listProduct = document.querySelector('.listProduct');
+          // Get 'id' parameter from URL
         let productId =  new URLSearchParams(window.location.search).get('id');
+               // Filter the product based on 'id' parameter
         let thisProduct = products.filter(value => value.id == productId)[0];
-        //if there is no product with id = productId => return to home page
+
+          // If there's no product with the specified 'id', redirect to the home page
+
         if(!thisProduct){
             window.location.href = "/";
         }
 
+// Display product details in the HTML elements
         detail.querySelector('.image img').src = thisProduct.image;
         detail.querySelector('.name').innerText = thisProduct.name;
         detail.querySelector('.price').innerText = '$' + thisProduct.price;
         detail.querySelector('.description').innerText = '$' + thisProduct.description;
 
 
+// Display other products (except the current one) as links
         (products.filter(value => value.id != productId)).forEach(product => {
             let newProduct = document.createElement('a');
             newProduct.href = '/detail.html?id=' + product.id;

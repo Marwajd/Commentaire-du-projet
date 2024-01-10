@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="Playfair_Display_SC">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/assets/fonts/playfair-display/Playfair_Display_SC.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
